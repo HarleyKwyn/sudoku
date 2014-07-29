@@ -1,5 +1,5 @@
 module.exports = function(board){
-  var htmlTable = "<table id='gameboard' data-board="+board+"> \n ";
+  var htmlTable = "<table data-board="+board+"> \n ";
   var htmlTableClose = '</table> \n';
   for (var column = 0; column < 3; column++) {
     htmlTable += "<tr>";

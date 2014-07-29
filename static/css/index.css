@@ -1,0 +1,52 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0e0e0e;
+  color: #216161;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}
+#headline {
+  color: #216161;
+  text-align: center;
+}
+#backgroundText {
+  position: absolute;
+  right: 60px;
+  color: #808080;
+  opacity: 0.2;
+  font-size: 54px;
+}
+#gameboard {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#gameboard table {
+  border-collapse: separate;
+  cellspacing: 0;
+  background-color: transparent;
+}
+#gameboard table table td,
+#gameboard input {
+  border-spacing: 5px;
+  border-collapse: separate;
+  background-color: #2d8888;
+  width: 28.333333333333336px;
+  height: 28.333333333333336px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+#gameboard input[type=number]::-webkit-inner-spin-button,
+#gameboard input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+#gameboard .static {
+  background-color: #216161;
+  color: #0e0e0e;
+}

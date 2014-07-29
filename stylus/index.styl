@@ -1,2 +1,75 @@
-@import 'nib'
+// @import 'nib'
 
+//color scheme
+//inspired by the black white and teal colors for Uber
+black = #0e0e0e;
+grey = #272727;
+darkTeal = #216161;
+lightTeal = #2d8888;
+mint = #38b0af;
+
+//base case, mobile first dimensions
+font_size = 18px;
+field_width = 300px;
+box_spacing = 5px
+tile_size = (field_width / 9) - box_spacing;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: darkTeal;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: font_size; 
+}
+
+#headline{
+  color: darkTeal;
+  text-align: center;
+}
+//CSS trick to have faded background text. 
+#backgroundText{
+  position: absolute;
+  right: (field_width/5);
+  color: gray;
+  opacity: 0.2;
+  font-size: font_size*3 px;
+}
+#gameboard{
+  width: field_width;
+  height: field_width;
+  margin-left: auto;
+  margin-right: auto;
+  
+  table{
+    border-collapse: separate;
+    cellspacing: 0;
+    background-color:transparent;
+  }
+
+  table table td, input{
+    border-spacing: box_spacing px;
+    border-collapse: separate;
+    background-color: lightTeal;
+    width:tile_size px;
+    height:tile_size px;
+    margin:0;
+    padding:0;
+    border:0;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+  }
+
+
+  .static {
+    background-color: darkTeal;
+    color:black;
+  }
+}
+
+//TODO: Handle css for larger screen sizes.
