@@ -1,9 +1,9 @@
 module.exports = function(board){
-  var htmlTable = "<table data-board="+board+"> \n ";
+  var htmlTable = "<table id='gameboard' data-board="+board+"> \n ";
   var htmlTableClose = '</table> \n';
-  for(var row = 0; row < 3; row++){
+  for (var column = 0; column < 3; column++) {
     htmlTable += "<tr>";
-    for (var column = 0; column < 3; column++) {
+    for(var row = 0; row < 3; row++){
         htmlTable += "<td>" + quadrent([row,column], board) + "</td>";
     }
     htmlTable +="</tr>";
