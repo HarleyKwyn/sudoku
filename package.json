@@ -1,0 +1,28 @@
+{
+  "name": "sudoku",
+  "version": "0.0.1",
+  "description": "Sudoku toy app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HarleyKwyn/sudoku.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarleyKwyn/sudoku/issues"
+  },
+  "homepage": "https://github.com/HarleyKwyn/sudoku",
+  "devDependencies": {
+    "gulp-compile-handlebars": "^0.2.0"
+  },
+  "dependencies": {
+    "hapi": "^6.0.2",
+    "handlebars": "^2.0.0-alpha.4",
+    "lodash": "^2.4.1"
+  }
+}
