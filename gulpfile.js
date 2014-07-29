@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     nib = require('nib'),
     stylus = require('gulp-stylus'),
-    nodemon = require('gulp-nodemon');
+    nodemon = require('gulp-nodemon'),
+    livereload = require('gulp-livereload');
 
 gulp.task('styles', function () {
   gulp.src('stylus/index.styl')
@@ -11,10 +12,11 @@ gulp.task('styles', function () {
 
 gulp.task('develop', function () {
   process.env.NODE_ENV = 'dev';
-  nodemon({ script: 'server.js', ext: 'hbs styl js', ignore: ['node_modules/', 'test/', 'facets/*/test/'] })
+  nodemon({ script: 'index.js', ext: 'hbs styl js', ignore: ['node_modules/', 'test/', 'facets/*/test/'] })
     .on('change', ['styles'])
     .on('restart', function () {
       console.log('restarted!')
+      livereload()
     })
 });
 
