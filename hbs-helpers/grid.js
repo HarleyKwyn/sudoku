@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 module.exports = function(board){
   var htmlTable = "<table data-board="+board+"> \n ";
   var htmlTableClose = '</table> \n';
