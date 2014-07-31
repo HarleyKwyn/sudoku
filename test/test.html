@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+  <!-- dependencies  -->
+  <div id="mocha"></div>
+  <script src="../node_modules/lodash/lodash.js"></script>
+  <script src="../node_modules/zepto/zepto.min.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script> mocha.setup('bdd')</script>
+  
+  <!-- source files -->
+  <script src="../static/src/sudoku.js"></script>
+  <script src="../static/src/inputHandler.js"></script>
+  <script src="../static/src/main.js"></script>
+
+  <!-- test files -->
+  <script src="sudoku_spec.js"></script>
+
+  <script>
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+    mocha.run();
+  </script>
+</body>
+</html>

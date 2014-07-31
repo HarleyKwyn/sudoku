@@ -4,7 +4,7 @@
   "description": "Sudoku toy app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/",
     "start": "nodemon index.js"
   },
   "repository": {
@@ -24,11 +24,14 @@
     "gulp-nodemon": "^1.0.4",
     "gulp": "^3.8.6",
     "gulp-livereload": "^2.1.0",
-    "gulp-watch": "^0.6.9"
+    "gulp-watch": "^0.6.9",
+    "mocha": "^1.21.3",
+    "chai": "^1.9.1"
   },
   "dependencies": {
     "hapi": "^6.0.2",
     "handlebars": "^2.0.0-alpha.4",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "zepto": "0.0.4"
   }
 }
