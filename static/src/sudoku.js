@@ -37,8 +37,16 @@ Sudoku.prototype.createColumnSets = function(board){
 };
 
 Sudoku.prototype.isValidSet = function(set){
-  if( _.unique(set) && ! _.contains(set, 0) ){
-    return true;
-  }
-  return false;
+  var setCount = {};
+  for (var i = 0; i < set.length; i++) {
+    var item = set[i];
+    if(item < 0 || item > 10){
+      return false;
+    }else if(setCount[item]){
+      return false;
+    }else{
+      setCount[item] = true;
+    }
+  };
+  return true;
 };
