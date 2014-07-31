@@ -23,9 +23,10 @@ function quadrent(coords, board){
   for(var i = rowMin; i < rowMax; i++){
     quadrentHtml += '<tr>'
     for(var j = columnMin; j < columnMax; j++){
-      var value = board[i*9+j];
+      var index = i*9+j;
+      var value = board[index];
       if(value === 0){
-        quadrentHtml += '<td> <input type="number"></input> </td>'
+        quadrentHtml += '<td class="editable"> <input data="'+ index +'" type="number"></input> </td>'
       }else{
         quadrentHtml += '<td class="static">' + value + '</td>' ;  
       }
