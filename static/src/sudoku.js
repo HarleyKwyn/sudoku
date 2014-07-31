@@ -4,7 +4,12 @@ var Sudoku = function(board){
 };
 
 Sudoku.prototype.isValidBoard = function(){
-  this._board
+  var currentBoard = this._board;
+  var quadrentSets = currentBoard.createQuadrentSets();
+  var rowSets = currentBoard.createRowSets();
+  var columnSets = currentBoard.createColumnSets();
+  
+
   return false;
 };
 
@@ -31,6 +36,9 @@ Sudoku.prototype.createColumnSets = function(board){
   return sets;
 };
 
-var isValidSet = function(set){
+Sudoku.prototype.isValidSet = function(set){
+  if( _.unique(set) && ! _.contains(set, 0) ){
+    return true;
+  }
   return false;
 };
