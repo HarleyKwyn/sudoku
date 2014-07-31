@@ -2,7 +2,7 @@ var expect = chai.expect;
 
 describe('Sudoku', function(){
   var validSet = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var invalidSet = [1, 1, 1, 1, 1, 1, 1, 1, 0];
+  var invalidSet = [1, 1, 13, 1, 1, 1, 1, 1, 0];
   var origonalBoard, testboard, validBoard;
 
   beforeEach(function(done){
@@ -19,6 +19,13 @@ describe('Sudoku', function(){
 
     it('should return true for valid set', function(){
       expect( testboard.isValidSet(validSet) ).to.equal(true);
+    });
+  });
+
+  describe('resetBoard', function(){
+    it('should reset board to original state', function(){
+      testboard.resetBoard()
+      expect( testboard._board ).to.equal(origonalBoard);
     });
   });
 
