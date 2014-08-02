@@ -5,34 +5,51 @@ var Sudoku = function(board){
 
 Sudoku.prototype.isValidBoard = function(){
   var currentBoard = this._board;
-  var quadrentSets = currentBoard.createQuadrentSets();
-  var rowSets = currentBoard.createRowSets();
-  var columnSets = currentBoard.createColumnSets();
+  var quadrentSets = currentBoard.getQuadrantSets();
+  var rowSets = currentBoard.getRowSets();
+  var columnSets = currentBoard.getColumnSets();
   
 
   return false;
 };
 
 Sudoku.prototype.resetBoard = function(){
+ d 
   return false;
 };
 
 Sudoku.prototype.updateBoard=function(index, value){
+
   return false;
 };
 
-Sudoku.prototype.createQuadrentSets = function(board){
-  var sets = [];
-  return set;
+Sudoku.prototype.getQuadrantSets = function(){
+
+  return sets;
 };
 
-Sudoku.prototype.createRowSets = function(board){
+Sudoku.prototype.getRowSets = function(){
   var sets = [];
-  return set;
+  var currentBoard = this._board;
+  var rowStart, rowEnd;
+  for(var i = 0; i < 9 ; i++){
+    rowStart= i*9 ;
+    rowEnd = rowStart+9
+    sets.push(currentBoard.slice(rowStart, rowEnd))
+  }
+  return sets;
 };
 
-Sudoku.prototype.createColumnSets = function(board){
+Sudoku.prototype.getColumnSets = function(){
   var sets = [];
+  var currentBoard = this._board;
+  for(var i = 0; i < 9; i ++){
+    sets.push([]);
+    for(var j = 0; j < 9; j++){
+      var boardIndex = (j*9) + i;
+      sets[i].push(currentBoard[boardIndex]);
+    }  
+  }
   return sets;
 };
 
