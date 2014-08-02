@@ -3,13 +3,34 @@ var Sudoku = function(board){
   this._origonalBoard = board;
 };
 
-Sudoku.prototype.isValidBoard = function(){
-  var currentBoard = this._board;
-  var quadrentSets = currentBoard.getQuadrantSets();
-  var rowSets = currentBoard.getRowSets();
-  var columnSets = currentBoard.getColumnSets();
+Sudoku.prototype.getBoardState = function(){
+  var conflicts = { quadrants: [] , rows: [], columns: [], length: 0};
+  var boardState = { isValid:false, conflicts: conflicts};
   
-  return false;
+  var allSets = {
+    quadrants: this.getQuadrantSets(),
+    rows : this.getRowSets(),
+    columns: this.getColumnSets()
+  };
+  
+  var checkConflicts = function(collectionOfSets){
+    _.forEach( collectionOfSets ,function(sets, setName){
+      _.forEach(sets, function(set, index){
+        if( ! this.isValidSet(set) ){
+          conflicts[setName].push(index);
+          conflicts.length++;
+        }   
+      }, this)
+    },this);
+  };
+
+  checkConflicts.call(this, allSets);
+
+  if (conflicts.length === 0 ){
+    boardState.isValid = true;
+  }
+  console.log(boardState);
+  return boardState;
 };
 
 Sudoku.prototype.resetBoard = function(){
