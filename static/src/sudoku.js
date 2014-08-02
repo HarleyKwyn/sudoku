@@ -33,6 +33,11 @@ Sudoku.prototype.getBoardState = function(){
   return boardState;
 };
 
+Sudoku.prototype.setBoard = function(newBoard){
+  this._board = newBoard;
+  return true;
+};
+
 Sudoku.prototype.resetBoard = function(){
   this._board = this._origonalBoard;
   return false;
