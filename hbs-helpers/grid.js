@@ -1,6 +1,6 @@
 module.exports = function(board){
-  var htmlTable = "<table data-board="+board+"> \n ";
-  var htmlTableClose = '</table> \n';
+  var htmlTable = "<div id='gameboard'> <table data-board="+board+"> \n ";
+  var htmlTableClose = '</table></div>';
   for (var column = 0; column < 3; column++) {
     htmlTable += "<tr>";
     for(var row = 0; row < 3; row++){
@@ -26,7 +26,7 @@ function quadrent(coords, board){
       var index = i*9+j;
       var value = board[index];
       if(value === 0){
-        quadrentHtml += '<td class="editable"> <input data="'+ index +'" type="number"></input> </td>'
+        quadrentHtml += '<td class="editable row'+i+' column'+j+'"> <input data="'+ index +'" type="number"></input> </td>'
       }else{
         quadrentHtml += '<td class="static">' + value + '</td>' ;  
       }
