@@ -9,18 +9,17 @@ Sudoku.prototype.isValidBoard = function(){
   var rowSets = currentBoard.getRowSets();
   var columnSets = currentBoard.getColumnSets();
   
-
   return false;
 };
 
 Sudoku.prototype.resetBoard = function(){
-
+  this._board = this._origonalBoard;
   return false;
 };
 
 Sudoku.prototype.updateBoard=function(index, value){
-
-  return false;
+  this._board[index] = value;
+  return true;
 };
 
 Sudoku.prototype.getQuadrantSets = function(){
@@ -40,7 +39,6 @@ Sudoku.prototype.getQuadrantSets = function(){
       sets[i] = sets[i].concat( currentBoard.slice(rowStart, rowEnd) );
 
     }
-    console.log(sets[i]);
   }
 
   return sets;
