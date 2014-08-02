@@ -14,7 +14,7 @@ Sudoku.prototype.isValidBoard = function(){
 };
 
 Sudoku.prototype.resetBoard = function(){
- d 
+
   return false;
 };
 
@@ -24,6 +24,24 @@ Sudoku.prototype.updateBoard=function(index, value){
 };
 
 Sudoku.prototype.getQuadrantSets = function(){
+  var sets = [];
+  var currentBoard = this._board;
+  var rowStart, rowEnd, quadrantRow, quadrantColumn;
+  for(var i = 0; i < 9 ; i++){
+    sets.push([]);
+    quadrantRow = 0;
+    for(var j = 0; j < 3 ; j++){
+
+      quadrantColumn = (i%3);
+      quadrantRow = Math.floor( (i*9) / (9*3) );
+
+      rowStart = quadrantColumn * 3 + quadrantRow * (9*3) + j*9;
+      rowEnd = rowStart + 3;
+      sets[i] = sets[i].concat( currentBoard.slice(rowStart, rowEnd) );
+
+    }
+    console.log(sets[i]);
+  }
 
   return sets;
 };
