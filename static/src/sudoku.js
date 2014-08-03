@@ -4,13 +4,13 @@ var Sudoku = function(board){
 };
 
 Sudoku.prototype.getBoardState = function(){
-  var conflicts = { quadrants: [] , rows: [], columns: [], length: 0};
+  var conflicts = { quad: [] , row: [], column: [], length: 0};
   var boardState = { isValid:false, conflicts: conflicts};
   
   var allSets = {
-    quadrants: this.getQuadrantSets(),
-    rows : this.getRowSets(),
-    columns: this.getColumnSets()
+    quad: this.getQuadrantSets(),
+    row : this.getRowSets(),
+    column: this.getColumnSets()
   };
   
   var checkConflicts = function(collectionOfSets){
