@@ -11,27 +11,54 @@ GameManager.prototype.registerEvents = function(){
     var target = event.target;
     var boardIndex = target.data;
     var userInput = target.valueAsNumber;
+    
     if(userInput){
       $(this).removeClass('invalid');
     }else{
       $(this).addClass('invalid');
     }
+
     engine.updateBoard(boardIndex, userInput);
-    self.highlightConflicts();
+    
+    self.clearHighlighting();
 
     if( engine.getBoardState().isValid ){
       self.gameWin();
     };
-    console.log('this',this)
+
   });
+  //handle board reset
+  $('#clear').on('click', function(){
+    self.resetBoard();
+  });
+  //handle highlight check event
+  $('#check').on('click', function(){
+    var action = $(this).html()
+    console.log(action)
+    if(action === 'Check'){
+      var boardstate = engine.getBoardState();
+      self.highlightConflicts(boardstate.conflicts);
+      $(this).html('Clear Highlighting');
+    }else{
+      self.clearHighlighting();
+      $(this).html('Check');
+    }
+    console.log($(this))
+  });
+  //TODO: Add tooltip hover for .invalid
 };
 
-GameManager.prototype.highlightConflicts = function(){
+GameManager.prototype.highlightConflicts = function(conflicts){
+  console.log('conflicts', conflicts)
+};
 
+GameManager.prototype.newBoard = function(){
+  //TODO: Make AJAX request to server for new board
+  //replace rendered html in #gameboard and creating a new GameManager object
 };
 
 GameManager.prototype.clearHighlighting = function(){
-  $('.invalid').removeClass('.invalid');
+  $('.conflict').removeClass('.conflict');
 };
 
 GameManager.prototype.gameWin = function(){
@@ -39,7 +66,7 @@ GameManager.prototype.gameWin = function(){
 };
 
 GameManager.prototype.resetBoard = function(){
-  this.game.resetBoard();
-  this.storage.clearGameBoard();
+  this.engine.resetBoard();
+  $('.invalid').removeClass('.invalid');
   $('input').clear();
 };
