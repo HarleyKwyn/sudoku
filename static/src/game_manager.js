@@ -19,7 +19,7 @@ GameManager.prototype.registerEvents = function(){
     // }else{
     //   $(this).addClass('invalid');
     // }
-    
+
     engine.updateBoard(boardIndex, integerValue);
     
     self.clearHighlighting();
@@ -50,13 +50,13 @@ GameManager.prototype.registerEvents = function(){
 };
 GameManager.prototype.highlightSingleConflict = function(setType, index){
   var queryString =  '.' +setType + index;
-  console.log(queryString);
+  console.log( queryString );
   $(queryString).addClass('conflict');
 }
 
 GameManager.prototype.highlightAllConflicts = function(conflicts){
   for(conflictType in conflicts){
-    if(conflictType !== 'length' && conflictType !== 'quad'){
+    if(conflictType !== 'length'){
       var listOfConflicts = conflicts[conflictType];
       for(var i = 0; i < listOfConflicts.length; i++){
         this.highlightSingleConflict(conflictType, listOfConflicts[i]);

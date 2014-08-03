@@ -56,6 +56,19 @@ body {
   background-color: #216161;
   color: #0e0e0e;
 }
-#gameboard .conflict {
+#gameboard table .conflict {
+  background-color: #790d0d;
+}
+#gameboard .conflict td {
   background-color: #bd4242;
+}
+#controls {
+  display: inline-block;
+}
+#controls button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+  text-align: center;
 }

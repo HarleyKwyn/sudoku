@@ -8,6 +8,7 @@ darkTeal = #216161;
 lightTeal = #2d8888;
 mint = #38b0af;
 red = #BD4242;
+darkRed = #790D0D;
 
 //base case, mobile first dimensions
 font_size = 18px;
@@ -79,9 +80,27 @@ html, body {
     background-color: darkTeal;
     color:black;
   }
-  .conflict {
-    background-color:#BD4242; 
+  
+  table .conflict{
+    background-color: darkRed;
   }
+
+  .conflict td{
+    background-color:red; 
+  } 
+
 }
 
+#controls{
+  display: inline-block;
+  button{
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align: middle;
+    text-align: center;    
+  }
+
+
+}
 //TODO: Handle css for larger screen sizes.

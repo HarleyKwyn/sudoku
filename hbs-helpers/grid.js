@@ -1,5 +1,5 @@
 module.exports = function(board){
-  var htmlTable = "<div id='gameboard'> <table data-board="+board+"> \n ";
+  var htmlTable = "<div id='gameboard'> <table > \n ";
   var htmlTableClose = '</table></div>';
   for (var column = 0; column < 3; column++) {
     htmlTable += "<tr>";
@@ -18,7 +18,7 @@ function quadrent(coords, board){
   var rowMin = coords[1]*3;
   var rowMax = rowMin + 3;
 
-  var quadrentHtml = "<table data-quad='"+ (coords[0] + coords[1]) +"'>"
+  var quadrentHtml = "<table class='quad"+ (coords[0] + coords[1]) +"'>"
   
   for(var i = rowMin; i < rowMax; i++){
     quadrentHtml += '<tr>'
