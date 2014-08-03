@@ -18,7 +18,7 @@ function quadrent(coords, board){
   var rowMin = coords[1]*3;
   var rowMax = rowMin + 3;
 
-  var quadrentHtml = "<table data-quad='"+coords+"'>"
+  var quadrentHtml = "<table data-quad='"+ (coords[0] + coords[1]) +"'>"
   
   for(var i = rowMin; i < rowMax; i++){
     quadrentHtml += '<tr>'
