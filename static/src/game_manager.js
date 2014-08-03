@@ -8,17 +8,19 @@ GameManager.prototype.registerEvents = function(){
   var engine = this.engine;
   //handle user input on game field
   $('.editable').on('keyup', function(event){
-    var target = event.target;
-    var boardIndex = target.data;
-    var userInput = target.valueAsNumber;
-    
-    if(userInput){
-      $(this).removeClass('invalid');
-    }else{
-      $(this).addClass('invalid');
-    }
+    var integerValue = $(this).children()[0].valueAsNumber
+    var boardIndex = event.target.data;
+    console.log( integerValue , this.value);
 
-    engine.updateBoard(boardIndex, userInput);
+    //Not working due to type="number" can't differentiate between
+    //empty field and string that is not a number
+    // if(  integerValue > 1 || integerValue < 9 ){
+    //   $(this).removeClass('invalid');
+    // }else{
+    //   $(this).addClass('invalid');
+    // }
+    
+    engine.updateBoard(boardIndex, integerValue);
     
     self.clearHighlighting();
 
@@ -29,27 +31,38 @@ GameManager.prototype.registerEvents = function(){
   });
   //handle board reset
   $('#clear').on('click', function(){
+    console.log('clear', self);
     self.resetBoard();
   });
   //handle highlight check event
-  $('#check').on('click', function(){
+  $('#check').on('click', function(){                                                     
     var action = $(this).html()
-    console.log(action)
     if(action === 'Check'){
       var boardstate = engine.getBoardState();
-      self.highlightConflicts(boardstate.conflicts);
+      self.highlightAllConflicts(boardstate.conflicts);
       $(this).html('Clear Highlighting');
     }else{
       self.clearHighlighting();
       $(this).html('Check');
     }
-    console.log($(this))
   });
   //TODO: Add tooltip hover for .invalid
 };
+GameManager.prototype.highlightSingleConflict = function(setType, index){
+  var queryString =  '.' +setType + index;
+  console.log(queryString);
+  $(queryString).addClass('conflict');
+}
 
-GameManager.prototype.highlightConflicts = function(conflicts){
-  console.log('conflicts', conflicts)
+GameManager.prototype.highlightAllConflicts = function(conflicts){
+  for(conflictType in conflicts){
+    if(conflictType !== 'length' && conflictType !== 'quad'){
+      var listOfConflicts = conflicts[conflictType];
+      for(var i = 0; i < listOfConflicts.length; i++){
+        this.highlightSingleConflict(conflictType, listOfConflicts[i]);
+      }
+    }
+  }
 };
 
 GameManager.prototype.newBoard = function(){
@@ -58,7 +71,7 @@ GameManager.prototype.newBoard = function(){
 };
 
 GameManager.prototype.clearHighlighting = function(){
-  $('.conflict').removeClass('.conflict');
+  $('.conflict').removeClass('conflict');
 };
 
 GameManager.prototype.gameWin = function(){
@@ -68,5 +81,5 @@ GameManager.prototype.gameWin = function(){
 GameManager.prototype.resetBoard = function(){
   this.engine.resetBoard();
   $('.invalid').removeClass('.invalid');
-  $('input').clear();
+  $('input').val('');
 };
