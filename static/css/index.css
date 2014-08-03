@@ -31,6 +31,7 @@ body {
 }
 #gameboard table table td,
 #gameboard input {
+  overflow: hidden;
   border-spacing: 5px;
   border-collapse: separate;
   background-color: #2d8888;
@@ -41,6 +42,11 @@ body {
   border: 0;
   text-align: center;
   vertical-align: middle;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}
+#gameboard input {
+  background-color: transparent;
 }
 #gameboard input[type=number]::-webkit-inner-spin-button,
 #gameboard input[type=number]::-webkit-outer-spin-button {
@@ -49,4 +55,7 @@ body {
 #gameboard .static {
   background-color: #216161;
   color: #0e0e0e;
+}
+#gameboard .conflict {
+  background-color: #bd4242;
 }
