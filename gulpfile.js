@@ -15,9 +15,9 @@ gulp.task('develop', function () {
   nodemon({ script: 'index.js', ext: 'hbs styl js', ignore: ['node_modules/', 'test/', 'facets/*/test/'] })
     .on('change', ['styles'])
     .on('restart', function () {
-      console.log('restarted!')
-      livereload()
+      console.log('restarted!');
+      livereload();
     })
 });
 
-gulp.task('default', ['styles'])
+gulp.task('default', ['styles']);

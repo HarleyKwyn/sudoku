@@ -20,7 +20,7 @@ server.route({
   method: 'GET',
   handler: function(request,reply){
     //temporary default game object passed in here.
-    //later will impliment an array of arrays of a generated game board. 
+    //later will implement an array of arrays of a generated game board. 
     reply.view('index', { 'board': config.defaultBoard } );
   }
 });

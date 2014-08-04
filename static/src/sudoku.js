@@ -29,7 +29,7 @@ Sudoku.prototype.getBoardState = function(){
   if (conflicts.length === 0 ){
     boardState.isValid = true;
   }
-  console.log(boardState);
+
   return boardState;
 };
 

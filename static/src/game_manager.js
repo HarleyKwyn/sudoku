@@ -24,7 +24,6 @@ GameManager.prototype.registerEvents = function(){
   });
   //handle board reset
   $('#clear').on('click', function(){
-    console.log('clear', self);
     self.resetBoard();
   });
   //handle highlight check event
@@ -43,12 +42,10 @@ GameManager.prototype.registerEvents = function(){
 };
 GameManager.prototype.highlightSingleConflict = function(setType, index){
   var queryString =  '.' +setType + index;
-  console.log( queryString );
   $(queryString).addClass('conflict');
 }
 
 GameManager.prototype.highlightAllConflicts = function(conflicts){
-  console.log(conflicts);
   for(conflictType in conflicts){
     if(conflictType !== 'length'){
       var listOfConflicts = conflicts[conflictType];
