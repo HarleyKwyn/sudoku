@@ -23,7 +23,9 @@ html, body {
   color: black;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 }
-
+a:visited{
+  color:lightTeal;
+}
 .container{
   width: field_width px;
   margin-left: auto;
@@ -126,7 +128,18 @@ header{
     text-align: center;    
   }
 }
-//TODO: Handle css for larger screen sizes.
+
+footer{
+  width: field_width px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size : font_size px;
+  a i{
+    font-size: font_size*1.5 px;
+  }
+}
+
+// Handle css for larger screen sizes.
 font_size = 18*2;
 field_width = 500;
 box_spacing = 5;
