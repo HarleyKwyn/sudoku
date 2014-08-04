@@ -16,12 +16,12 @@ box_spacing = 5;
 tile_size = (field_width / 9) - box_spacing;
 
 html, body {
+  font-size: font_size px; 
   position:relative;
   margin: 0;
   padding: 0;
   color: black;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: font_size px; 
 }
 
 .container{
@@ -43,11 +43,11 @@ header{
 //CSS trick to have faded background text. 
 .backgroundText{
   margin-top: -(font_size*5) px;
+  font-size: font_size*3 px;
   color: gray;
   opacity: 0.2;
   z-index:-1;
   text-align: center;
-  font-size: font_size*3 px;
 }
 
 #gameboard{
@@ -63,12 +63,13 @@ header{
   }
 
   table table td, input{
-    overflow: hidden;
-    border-spacing: box_spacing px;
-    border-collapse: separate;
-    background-color: lightTeal;
     width:tile_size px;
     height:tile_size px;
+    font-size:font_size px;
+    border-spacing: box_spacing px;
+    overflow: hidden;
+    border-collapse: separate;
+    background-color: lightTeal;
     margin:0;
     padding:0;
     border:0;
@@ -76,7 +77,6 @@ header{
     text-align: center;
     vertical-align: middle;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-    font-size:font_size px;
   }
 
   input{
@@ -103,15 +103,16 @@ header{
       background-color: black;
     }
   } 
-  
+
 }
 
 #controls{
   width: field_width px;
+  padding:box_spacing px;
   margin-left: auto;
   margin-right: auto;
-  padding:box_spacing px;
   button{
+    height: font_size * 2 px;
     margin: 1%;
     display: flex-box;
     border: 2px solid #1fbad6
@@ -120,10 +121,43 @@ header{
     font-size: font_size px;
     border-radius: 4px;
     width: 45.5%;
-    height: font_size * 2 px;
     vertical-align: middle;
     background-color: black;
     text-align: center;    
   }
 }
 //TODO: Handle css for larger screen sizes.
+font_size = 18*2;
+field_width = 500;
+box_spacing = 5;
+tile_size = (field_width / 9) - box_spacing;
+
+@media (min-width: 500px){
+  html, body {
+    font-size: font_size px; 
+  }
+  .backgroundText{
+    margin-top: -(font_size*5) px;
+    font-size: font_size*3 px;
+  }
+  #gameboard{
+    width: field_width px;
+    height: field_width px;
+    table table td, input{
+      width:tile_size px;
+      height:tile_size px;
+      font-size:font_size px;
+      border-spacing: box_spacing px;
+    }
+  }
+  .container{
+    width: field_width px;
+  }
+  #controls{
+    width: field_width px;
+    padding:box_spacing px;
+    button{
+      height: font_size * 2 px;
+    }
+  }
+}

@@ -1,11 +1,11 @@
 html,
 body {
+  font-size: 18px;
   position: relative;
   margin: 0;
   padding: 0;
   color: #0e0e0e;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
 }
 .container {
   width: 300px;
@@ -18,11 +18,11 @@ header {
 }
 .backgroundText {
   margin-top: -90px;
+  font-size: 54px;
   color: #808080;
   opacity: 0.2;
   z-index: -1;
   text-align: center;
-  font-size: 54px;
 }
 #gameboard {
   width: 300px;
@@ -37,12 +37,13 @@ header {
 }
 #gameboard table table td,
 #gameboard input {
-  overflow: hidden;
-  border-spacing: 5px;
-  border-collapse: separate;
-  background-color: #1fbad6;
   width: 28.333333333333336px;
   height: 28.333333333333336px;
+  font-size: 18px;
+  border-spacing: 5px;
+  overflow: hidden;
+  border-collapse: separate;
+  background-color: #1fbad6;
   margin: 0;
   padding: 0;
   border: 0;
@@ -50,7 +51,6 @@ header {
   text-align: center;
   vertical-align: middle;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
 }
 #gameboard input {
   background-color: transparent;
@@ -74,11 +74,12 @@ header {
 }
 #controls {
   width: 300px;
+  padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
 }
 #controls button {
+  height: 36px;
   margin: 1%;
   display: flex-box;
   border: 2px solid #1fbad6;
@@ -87,8 +88,38 @@ header {
   font-size: 18px;
   border-radius: 4px;
   width: 45.5%;
-  height: 36px;
   vertical-align: middle;
   background-color: #0e0e0e;
   text-align: center;
+}
+@media (min-width: 500px) {
+  html,
+  body {
+    font-size: 36px;
+  }
+  .backgroundText {
+    margin-top: -180px;
+    font-size: 108px;
+  }
+  #gameboard {
+    width: 500px;
+    height: 500px;
+  }
+  #gameboard table table td,
+  #gameboard input {
+    width: 50.55555555555556px;
+    height: 50.55555555555556px;
+    font-size: 36px;
+    border-spacing: 5px;
+  }
+  .container {
+    width: 500px;
+  }
+  #controls {
+    width: 500px;
+    padding: 5px;
+  }
+  #controls button {
+    height: 72px;
+  }
 }
