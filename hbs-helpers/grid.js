@@ -26,7 +26,7 @@ function quadrent(coords, board){
       var index = i*9+j;
       var value = board[index];
       if(value === 0){
-        quadrentHtml += '<td class="editable row'+i+' column'+j+'"> <input data="'+ index +'" type="number"></input> </td>'
+        quadrentHtml += '<td class="editable row'+i+' column'+j+'"> <input data-index="'+ index +'" type="number"></input> </td>'
       }else{
         quadrentHtml += '<td class="static">' + value + '</td>' ;  
       }
