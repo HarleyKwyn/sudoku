@@ -7,22 +7,15 @@ GameManager.prototype.registerEvents = function(){
   var self = this;
   var engine = this.engine;
   //handle user input on game field
-  $('.editable').on('keyup', function(event){
-    var integerValue = $(this).children()[0].valueAsNumber
-    var boardIndex = event.target.data;
-    console.log( integerValue , this.value);
-
-    //Not working due to type="number" can't differentiate between
-    //empty field and string that is not a number
-    // if(  integerValue > 1 || integerValue < 9 ){
-    //   $(this).removeClass('invalid');
-    // }else{
-    //   $(this).addClass('invalid');
-    // }
+  $('.editable > input').on('keyup', function(event){
+    var integerValue = $(this).val()
+    integerValue = integerValue ? parseInt(integerValue) : 0;
+    var boardIndex = parseInt($(this).data('index'));
 
     engine.updateBoard(boardIndex, integerValue);
     
     self.clearHighlighting();
+    $('#check').html('Check');
 
     if( engine.getBoardState().isValid ){
       self.gameWin();
@@ -37,13 +30,13 @@ GameManager.prototype.registerEvents = function(){
   //handle highlight check event
   $('#check').on('click', function(){                                                     
     var action = $(this).html()
-    if(action === 'Check'){
+    if(action === 'Show Errors'){
       var boardstate = engine.getBoardState();
       self.highlightAllConflicts(boardstate.conflicts);
-      $(this).html('Clear Highlighting');
+      $(this).html('Hide Errors');
     }else{
       self.clearHighlighting();
-      $(this).html('Check');
+      $(this).html('Show Errors');
     }
   });
   //TODO: Add tooltip hover for .invalid
@@ -55,6 +48,7 @@ GameManager.prototype.highlightSingleConflict = function(setType, index){
 }
 
 GameManager.prototype.highlightAllConflicts = function(conflicts){
+  console.log(conflicts);
   for(conflictType in conflicts){
     if(conflictType !== 'length'){
       var listOfConflicts = conflicts[conflictType];

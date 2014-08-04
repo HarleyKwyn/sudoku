@@ -4,44 +4,55 @@
 //inspired by the black white and teal colors for Uber
 black = #0e0e0e;
 grey = #272727;
-darkTeal = #216161;
-lightTeal = #2d8888;
+lightTeal = #1fbad6;
 mint = #38b0af;
 red = #BD4242;
 darkRed = #790D0D;
 
 //base case, mobile first dimensions
-font_size = 18px;
-field_width = 300px;
-box_spacing = 5px
+font_size = 18;
+field_width = 300;
+box_spacing = 5;
 tile_size = (field_width / 9) - box_spacing;
 
 html, body {
+  position:relative;
   margin: 0;
   padding: 0;
-  background: black;
-  color: darkTeal;
+  color: black;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: font_size; 
+  font-size: font_size px; 
 }
 
-#headline{
-  color: darkTeal;
+.container{
+  width: field_width px;
+  margin-left: auto;
+  margin-right: auto;
+}
+// #headline{
+//   width: field_width px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+header{
+  color: black;
   text-align: center;
 }
 
 //CSS trick to have faded background text. 
-#backgroundText{
-  position: absolute;
-  right: (field_width/5);
+.backgroundText{
+  margin-top: -(font_size*5) px;
   color: gray;
   opacity: 0.2;
+  z-index:-1;
+  text-align: center;
   font-size: font_size*3 px;
 }
 
 #gameboard{
-  width: field_width;
-  height: field_width;
+  width: field_width px;
+  height: field_width px;
   margin-left: auto;
   margin-right: auto;
   
@@ -61,6 +72,7 @@ html, body {
     margin:0;
     padding:0;
     border:0;
+    color:white;
     text-align: center;
     vertical-align: middle;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
@@ -77,30 +89,41 @@ html, body {
   }
 
   .static {
-    background-color: darkTeal;
-    color:black;
+    background-color: black;
+    color: white;
   }
-  
+
   table .conflict{
     background-color: darkRed;
   }
 
   .conflict td{
-    background-color:red; 
+    background-color:red;
+    .static{
+      background-color: black;
+    }
   } 
-
+  
 }
 
 #controls{
-  display: inline-block;
+  width: field_width px;
+  margin-left: auto;
+  margin-right: auto;
+  padding:box_spacing px;
   button{
-    margin:0;
-    padding:0;
-    border:0;
+    margin: 1%;
+    display: flex-box;
+    border: 2px solid #1fbad6
+    color: white;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: font_size px;
+    border-radius: 4px;
+    width: 45.5%;
+    height: font_size * 2 px;
     vertical-align: middle;
+    background-color: black;
     text-align: center;    
   }
-
-
 }
 //TODO: Handle css for larger screen sizes.

@@ -1,21 +1,27 @@
 html,
 body {
+  position: relative;
   margin: 0;
   padding: 0;
-  background: #0e0e0e;
-  color: #216161;
+  color: #0e0e0e;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
 }
-#headline {
-  color: #216161;
+.container {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+header {
+  color: #0e0e0e;
   text-align: center;
 }
-#backgroundText {
-  position: absolute;
-  right: 60px;
+.backgroundText {
+  margin-top: -90px;
   color: #808080;
   opacity: 0.2;
+  z-index: -1;
+  text-align: center;
   font-size: 54px;
 }
 #gameboard {
@@ -34,12 +40,13 @@ body {
   overflow: hidden;
   border-spacing: 5px;
   border-collapse: separate;
-  background-color: #2d8888;
+  background-color: #1fbad6;
   width: 28.333333333333336px;
   height: 28.333333333333336px;
   margin: 0;
   padding: 0;
   border: 0;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
@@ -53,8 +60,8 @@ body {
   -webkit-appearance: none;
 }
 #gameboard .static {
-  background-color: #216161;
-  color: #0e0e0e;
+  background-color: #0e0e0e;
+  color: #fff;
 }
 #gameboard table .conflict {
   background-color: #790d0d;
@@ -62,13 +69,26 @@ body {
 #gameboard .conflict td {
   background-color: #bd4242;
 }
+#gameboard .conflict td .static {
+  background-color: #0e0e0e;
+}
 #controls {
-  display: inline-block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
 }
 #controls button {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: 1%;
+  display: flex-box;
+  border: 2px solid #1fbad6;
+  color: #fff;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 4px;
+  width: 45.5%;
+  height: 36px;
   vertical-align: middle;
+  background-color: #0e0e0e;
   text-align: center;
 }
